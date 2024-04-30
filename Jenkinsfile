@@ -18,6 +18,7 @@ pipeline {
                 echo "Running integration tests using Selenium"
             }
         }
+        
         stage('Code Analysis') {
             steps {
                 // Integrate a code analysis tool (e.g., SonarQube)
