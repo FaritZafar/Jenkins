@@ -16,6 +16,17 @@ pipeline {
                 // Run integration tests using Selenium
                 echo "Running integration tests using Selenium"
             }
+            post {
+        always {
+            // Send email with build log file as attachment
+            emailext (
+                to: 'faritzafar0@gmail.com',
+                subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+                body: "The pipeline has completed with result ${currentBuild.result}.",
+                attachmentsPattern: 'logs/*.log',
+                attachLog: true
+            )
+        }
         }
         
         stage('Code Analysis') {
@@ -29,6 +40,17 @@ pipeline {
                 // Perform a security scan using OWASP ZAP
                 echo "Performing security scan using OWASP ZAP"
             }
+            post {
+        always {
+            // Send email with build log file as attachment
+            emailext (
+                to: 'faritzafar0@gmail.com',
+                subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+                body: "The pipeline has completed with result ${currentBuild.result}.",
+                attachmentsPattern: 'logs/*.log',
+                attachLog: true
+            )
+        }
         }
         stage('Deploy to Staging') {
             steps {
