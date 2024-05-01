@@ -13,7 +13,7 @@ pipeline {
             steps {
                 
                 // Run unit tests using JUnit
-                echo "Running unit tests using JUnit"
+                echo "Running unit tests using Junit"
                 
                 // Run integration tests using Selenium
                 echo "Running integration tests using Selenium"
