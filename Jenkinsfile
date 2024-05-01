@@ -58,7 +58,8 @@ pipeline {
                 to: 'faritzafar0@gmail.com',
                 subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
                 body: "The pipeline has completed with result ${currentBuild.result}.",
-                attachmentsPattern: 'logs/*.log'
+                attachmentsPattern: 'logs/*.log',
+                attachLog: true
             )
         }
     }
