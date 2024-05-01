@@ -8,6 +8,7 @@ pipeline {
                 echo "Building the code using Maven and then integrating"
             }
         }
+        
         sad
         stage('Unit and Integration Tests') {
             steps {
