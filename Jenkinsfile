@@ -9,7 +9,7 @@ pipeline {
             }
         }
         
-        sad
+        
         hellos
         stage('Unit and Integration Tests') {
             steps {
