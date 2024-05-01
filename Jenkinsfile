@@ -52,23 +52,16 @@ pipeline {
     }
     
     post {
-        success {
-            // Send notification email on success
+        always {
+            // Send email with build log file as attachment
             emailext (
                 to: 'faritzafar0@gmail.com',
-                subject: "Pipeline Success",
-                body: "The pipeline has completed successfully. All stages passed.",
-                attachmentsPattern: 'logs/*.log'
-            )
-        }
-        failure {
-            // Send notification email on failure
-            emailext (
-                to: 'faritzafar0@gmail.com',
-                subject: "Pipeline Failure",
-                body: "The pipeline has failed. Please check the logs for details.",
+                subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+                body: "The pipeline has completed with result ${currentBuild.result}.",
                 attachmentsPattern: 'logs/*.log'
             )
         }
     }
 }
+
+
