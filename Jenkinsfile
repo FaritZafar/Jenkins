@@ -7,7 +7,7 @@ pipeline {
                 // Build the code using Maven
                 echo "Building the code using Maven and then integrating"
             }
-        }       Hello
+        }       
         stage('Unit and Integration Tests') {
             steps {
                 // Run unit tests using JUnit
