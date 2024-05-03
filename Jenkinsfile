@@ -8,7 +8,10 @@ pipeline {
                 echo "Building the code using Maven and then integrating"
             }
         }       
-    
+
+
+
+        
         stage('Unit and Integration Tests') {
             steps {
                 // Run unit tests using JUnit
